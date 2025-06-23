@@ -11,4 +11,4 @@ jobs:
     if: ${{ !contains(github.event.pull_request.labels.*.name, 'test') }}
     steps:
       - name: echo
-        run: echo ${{ github.event.pull_request.labels.*.name }}
+        run: echo ${{ toJSON(github.event.pull_request.labels.*.name) }}
