@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: echo
-        run: echo ${{ toJSON(github.event.issue.labels.*.name) }}
+        run: echo ${{ toJSON(github.event.issue.labels) }}
