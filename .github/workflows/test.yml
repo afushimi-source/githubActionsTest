@@ -11,6 +11,7 @@ jobs:
     name: Add issue to project
     timeout-minutes: 1
     runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'bug')
     steps:
       - name: echo
         run: echo ${{ toJSON(github.event.issue.labels) }}
