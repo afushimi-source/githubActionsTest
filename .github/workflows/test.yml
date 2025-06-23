@@ -3,16 +3,18 @@ on:
   issues:
     types:
       - opened
+  label:
+    types: [created]
+
 jobs:
   add-to-project:
     name: Add issue to project
     timeout-minutes: 1
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.pull_request.labels.*.name, 'test') }}
     steps:
       - name: echo
-        run: echo ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: echo ${{ toJSON(github.event.issue.labels.*.name) }}
       - name: sleep
         run: sleep 5
       - name: echo
-        run: echo ${{ toJSON(github.event.pull_request.labels.*.name) }}
+        run: echo ${{ toJSON(github.event.issue.labels.*.name) }}
